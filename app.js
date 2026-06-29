@@ -476,9 +476,17 @@ async function convert() {
     let lenForBitrate = null;
     if (end != null) lenForBitrate = Math.max(0.1, end - start);
     else if (D) lenForBitrate = Math.max(0.1, D - start);
-    const pre = start > 0 ? ["-ss", String(start)] : [];
-    const post = (end != null) ? ["-t", String(Math.max(0.1, end - start))]
-      : (start > 0 && D ? ["-t", String(Math.max(0.1, D - start))] : []);
+    // Both -ss and -t go on the INPUT side (before -i) so they bound the *source*
+    // window that's read. If -t were placed after -i (output side), it would be
+    // measured on the post-filter output timeline — and `setpts` (speed) rescales
+    // that timeline, so at 2x the output -t would overrun the trim end (read twice
+    // as much source) and at 0.5x it would cut the segment short. Input-side -t is
+    // independent of speed. (See logs: trim+speed bug, 2026-06-29.)
+    const pre = [];
+    if (start > 0) pre.push("-ss", String(start));
+    if (end != null) pre.push("-t", String(Math.max(0.1, end - start)));
+    else if (start > 0 && D) pre.push("-t", String(Math.max(0.1, D - start)));
+    const post = [];
 
     const w = targetWidth();
     const fpsExplicit = fpsSel.value === "source" ? null : Number(fpsSel.value);

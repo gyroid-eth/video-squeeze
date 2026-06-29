@@ -69,7 +69,7 @@ python3 serve.py
    - **Scale** … 出力幅。アスペクト比は維持。元より大きい値を選んでも拡大はしない
    - **Frame rate** … fps を落とすとさらに軽くなる（GIF は特に効く）
    - **Audio**（MP4のみ）… Keep(AAC) / Mute
-   - **Trim** … 開始・終了（`12` 秒 or `0:12` 形式、任意）
+   - **Trim** … タイムラインの両端ハンドルをドラッグして範囲指定（帯の外をクリックでスクラブ）。任意。倍速と併用しても正しくトリムされます
 3. **SQUEEZE** を押す → 進捗バー → 結果プレビュー → **Download**
 4. 「Use result as new source」で出力をそのまま次の入力にして再圧縮も可能
 
@@ -181,7 +181,7 @@ python3 serve.py
    - **Scale** — output width; aspect ratio preserved; never upscales beyond the source
    - **Frame rate** — lowering fps shrinks the file further (especially for GIF)
    - **Audio** (MP4 only) — Keep (AAC) / Mute
-   - **Trim** — start/end (`12` seconds or `0:12`, optional)
+   - **Trim** — drag the timeline's end handles to select a range (click outside the band to scrub). Optional. Works correctly together with Speed
 3. Press **SQUEEZE** → progress bar → result preview → **Download**.
 4. "Use result as new source" feeds the output back in for another pass.
 
