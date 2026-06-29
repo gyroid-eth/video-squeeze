@@ -11,6 +11,13 @@ Convert/compress video to **MP4 (H.264)** or **GIF**. Powered by [ffmpeg.wasm](h
 - 🧰 **依存ゼロ / zero install** — needs only Python 3 (standard library) and a browser.
 - 🎬 入力は **MOV / MP4 / M4V / MKV / WEBM / AVI**（H.264・H.265/HEVC・VP9・MPEG-4 を検証済み）。
 
+![VIDEOSQUEEZE のUI — 左に動画をドロップ、右で設定 / Drop a video on the left, configure on the right](docs/img/hero.png)
+
+動画をドロップ → フォーマット・画質を選ぶ → **SQUEEZE** → ダウンロード。下は 4.5 MB のクリップを **1.37 MB（−68%）** に圧縮した例（すべてローカル処理）。
+*Drop a video → pick format/quality → **SQUEEZE** → download. Below: a 4.5 MB clip compressed to 1.37 MB (−68%), entirely locally.*
+
+![圧縮結果 — 元より68%小さく / Result panel: 68% smaller than the original](docs/img/result.png)
+
 ---
 
 - [日本語](#日本語)
