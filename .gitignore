@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+
+# test fixtures (regenerate with ffmpeg — see README "Testing")
+test-samples/
+
+# local dev/work logs
+logs/
+
+# runtime
+*.log
